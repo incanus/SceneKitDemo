@@ -76,6 +76,7 @@
                     </view>
                     <connections>
                         <outlet property="animateButton" destination="i4J-Pd-t4J" id="9Gy-RD-1WT"/>
+                        <outlet property="cameraResetButton" destination="itt-Ac-8Gw" id="NqT-fb-ZUr"/>
                         <outlet property="sceneView" destination="yic-qK-lLX" id="4vZ-zR-aE4"/>
                         <outlet property="textField" destination="aaB-5B-HQi" id="5OM-FZ-D5K"/>
                     </connections>

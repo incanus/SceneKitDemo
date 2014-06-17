@@ -13,6 +13,7 @@
 @interface ViewController ()
 
 @property (nonatomic) IBOutlet UITextField *textField;
+@property (nonatomic) IBOutlet UIButton *cameraResetButton;
 @property (nonatomic) IBOutlet UIButton *animateButton;
 @property (nonatomic) IBOutlet SCNView *sceneView;
 @property (nonatomic) SCNNode *cameraNode;
@@ -49,6 +50,7 @@
     self.cameraNode.camera.zNear = 0.1;
     [scene.rootNode addChildNode:self.cameraNode];
     self.sceneView.pointOfView = self.cameraNode;
+    self.cameraResetButton.hidden = YES;
 
     SCNText *sceneText = [SCNText textWithString:self.textField.text extrusionDepth:2];
     SCNMaterial *frontMaterial = [SCNMaterial material];
@@ -83,13 +85,15 @@
 
 - (void)panCamera:(UIPanGestureRecognizer *)pan {
     self.cameraNode.rotation = SCNVector4Make(0, 1, 0, ([pan translationInView:pan.view].x / 1000) * M_PI);
+    self.cameraResetButton.hidden = NO;
 }
 
 - (void)zoomCamera:(UIPinchGestureRecognizer *)pinch {
     CGFloat z = self.cameraNode.position.z * (1 / pinch.scale);
-    z = fmaxf(1.1, z);
+    z = fmaxf(1.0, z);
     z = fminf(4.0, z);
     self.cameraNode.position = SCNVector3Make(0, 0, z);
+    self.cameraResetButton.hidden = NO;
 }
 
 - (IBAction)clearText:(id)sender {
@@ -98,6 +102,7 @@
 }
 
 - (IBAction)resetCamera:(id)sender {
+    self.cameraResetButton.hidden = YES;
     [SCNTransaction begin];
     [SCNTransaction setAnimationDuration:0.5];
     self.cameraNode.position = SCNVector3Make(0, 0, 2);
