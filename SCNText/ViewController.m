@@ -117,7 +117,10 @@
         [self animateText];
     } else {
         [self.animateButton setTitle:@"Start Animating" forState:UIControlStateNormal];
+        [SCNTransaction begin];
+        [SCNTransaction setAnimationDuration:0.5];
         self.textNode.rotation = SCNVector4Zero;
+        [SCNTransaction commit];
     }
 }
 
