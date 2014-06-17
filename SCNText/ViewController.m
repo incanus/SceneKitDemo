@@ -72,15 +72,11 @@
 
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
-    [self focusTextField:self];
+    [self.textField becomeFirstResponder];
 }
 
 - (void)dealloc {
     [[NSNotificationCenter defaultCenter] removeObserver:self];
-}
-
-- (void)focusTextField:(id)sender {
-    [self.textField becomeFirstResponder];
 }
 
 - (void)panCamera:(UIPanGestureRecognizer *)pan {
