@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6154.17" systemVersion="13D65" targetRuntime="iOS.CocoaTouch.iPad" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6153.11"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
+                        <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="480" height="480"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="amM-g4-9fu">
+                                <rect key="frame" x="20" y="20" width="69" height="30"/>
+                                <state key="normal" title="Clear Text">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="clearText:" destination="BYZ-38-t0r" eventType="touchUpInside" id="l3z-Nd-Dzn"/>
+                                </connections>
+                            </button>
+                            <textField hidden="YES" opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="SceneKit" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="aaB-5B-HQi">
+                                <rect key="frame" x="192" y="20" width="97" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="i4J-Pd-t4J">
+                                <rect key="frame" x="354" y="20" width="106" height="30"/>
+                                <state key="normal" title="Start Animating">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="toggleAnimate:" destination="BYZ-38-t0r" eventType="touchUpInside" id="KE5-Mc-T0T"/>
+                                </connections>
+                            </button>
+                            <sceneKitView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="yic-qK-lLX">
+                                <rect key="frame" x="0.0" y="58" width="240" height="128"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                            </sceneKitView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="aaB-5B-HQi" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="DTs-Ux-sOk"/>
+                            <constraint firstItem="i4J-Pd-t4J" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="K6L-Fa-CZB"/>
+                            <constraint firstItem="amM-g4-9fu" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="20" symbolic="YES" id="Nug-zY-z81"/>
+                            <constraint firstItem="yic-qK-lLX" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" id="YCz-iy-eFp"/>
+                            <constraint firstItem="amM-g4-9fu" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="ba2-md-czf"/>
+                            <constraint firstItem="yic-qK-lLX" firstAttribute="top" secondItem="amM-g4-9fu" secondAttribute="bottom" constant="8" symbolic="YES" id="jaj-rd-Ljx"/>
+                            <constraint firstAttribute="trailing" secondItem="i4J-Pd-t4J" secondAttribute="trailing" constant="20" symbolic="YES" id="kD2-yO-Gzb"/>
+                            <constraint firstAttribute="centerX" secondItem="yic-qK-lLX" secondAttribute="centerX" id="pLT-TX-cdu"/>
+                            <constraint firstAttribute="centerX" secondItem="aaB-5B-HQi" secondAttribute="centerX" constant="-0.5" id="v8D-FD-qaR"/>
+                            <constraint firstItem="yic-qK-lLX" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" multiplier="0.45" id="w1A-qE-RZp"/>
+                        </constraints>
+                        <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
+                    </view>
+                    <connections>
+                        <outlet property="animateButton" destination="i4J-Pd-t4J" id="9Gy-RD-1WT"/>
+                        <outlet property="sceneView" destination="yic-qK-lLX" id="4vZ-zR-aE4"/>
+                        <outlet property="textField" destination="aaB-5B-HQi" id="5OM-FZ-D5K"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+        </scene>
+    </scenes>
+</document>
