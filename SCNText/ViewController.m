@@ -37,9 +37,9 @@
                                                  name:UITextFieldTextDidChangeNotification
                                                object:self.textField];
 
-    [self.sceneView addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(focusTextField:)]];
     [self.sceneView addGestureRecognizer:[[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(panCamera:)]];
     [self.sceneView addGestureRecognizer:[[UIPinchGestureRecognizer alloc] initWithTarget:self action:@selector(zoomCamera:)]];
+    [self.sceneView addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(cycleExtrusion:)]];
 
     SCNScene *scene = [SCNScene scene];
     self.sceneView.scene = scene;
@@ -94,6 +94,18 @@
     z = fminf(4.0, z);
     self.cameraNode.position = SCNVector3Make(0, 0, z);
     self.cameraResetButton.hidden = NO;
+}
+
+- (void)cycleExtrusion:(UITapGestureRecognizer *)tap {
+    if (tap.state == UIGestureRecognizerStateEnded) {
+        SCNText *sceneText = (SCNText *)self.textNode.geometry;
+        CGFloat newDepth = sceneText.extrusionDepth + 1.0;
+        if (newDepth > 10.0) newDepth = 2.0;
+        [SCNTransaction begin];
+        [SCNTransaction setAnimationDuration:1.0];
+        sceneText.extrusionDepth = newDepth;
+        [SCNTransaction commit];
+    }
 }
 
 - (IBAction)clearText:(id)sender {
