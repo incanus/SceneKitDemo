@@ -27,6 +27,16 @@
                                     <action selector="clearText:" destination="BYZ-38-t0r" eventType="touchUpInside" id="l3z-Nd-Dzn"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="itt-Ac-8Gw">
+                                <rect key="frame" x="205" y="20" width="69" height="30"/>
+                                <state key="normal" title="Reset Camera">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="resetCamera:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Cx3-7u-WOu"/>
+                                </connections>
+                            </button>
                             <textField hidden="YES" opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="SceneKit" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="aaB-5B-HQi">
                                 <rect key="frame" x="192" y="20" width="97" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -50,12 +60,14 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="aaB-5B-HQi" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="DTs-Ux-sOk"/>
+                            <constraint firstAttribute="centerX" secondItem="itt-Ac-8Gw" secondAttribute="centerX" constant="0.5" id="IqV-lS-mDY"/>
                             <constraint firstItem="i4J-Pd-t4J" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="K6L-Fa-CZB"/>
                             <constraint firstItem="amM-g4-9fu" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="20" symbolic="YES" id="Nug-zY-z81"/>
                             <constraint firstItem="yic-qK-lLX" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" id="YCz-iy-eFp"/>
                             <constraint firstItem="amM-g4-9fu" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="ba2-md-czf"/>
                             <constraint firstItem="yic-qK-lLX" firstAttribute="top" secondItem="amM-g4-9fu" secondAttribute="bottom" constant="8" symbolic="YES" id="jaj-rd-Ljx"/>
                             <constraint firstAttribute="trailing" secondItem="i4J-Pd-t4J" secondAttribute="trailing" constant="20" symbolic="YES" id="kD2-yO-Gzb"/>
+                            <constraint firstItem="itt-Ac-8Gw" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="lQJ-hA-LOo"/>
                             <constraint firstAttribute="centerX" secondItem="yic-qK-lLX" secondAttribute="centerX" id="pLT-TX-cdu"/>
                             <constraint firstAttribute="centerX" secondItem="aaB-5B-HQi" secondAttribute="centerX" constant="-0.5" id="v8D-FD-qaR"/>
                             <constraint firstItem="yic-qK-lLX" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" multiplier="0.45" id="w1A-qE-RZp"/>

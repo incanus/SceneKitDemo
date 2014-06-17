@@ -15,6 +15,7 @@
 @property (nonatomic) IBOutlet UITextField *textField;
 @property (nonatomic) IBOutlet UIButton *animateButton;
 @property (nonatomic) IBOutlet SCNView *sceneView;
+@property (nonatomic) SCNNode *cameraNode;
 @property (nonatomic) SCNNode *textNode;
 @property (nonatomic, getter=isAnimating) BOOL animating;
 
@@ -36,15 +37,18 @@
                                                object:self.textField];
 
     [self.sceneView addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(focusTextField:)]];
+    [self.sceneView addGestureRecognizer:[[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(panCamera:)]];
+    [self.sceneView addGestureRecognizer:[[UIPinchGestureRecognizer alloc] initWithTarget:self action:@selector(zoomCamera:)]];
 
     SCNScene *scene = [SCNScene scene];
     self.sceneView.scene = scene;
 
-    SCNNode *cameraNode = [SCNNode node];
-    cameraNode.position = SCNVector3Make(0, 0, 2);
-    cameraNode.camera = [SCNCamera camera];
-    [scene.rootNode addChildNode:cameraNode];
-    self.sceneView.pointOfView = cameraNode;
+    self.cameraNode = [SCNNode node];
+    self.cameraNode.position = SCNVector3Make(0, 0, 2);
+    self.cameraNode.camera = [SCNCamera camera];
+    self.cameraNode.camera.zNear = 0.1;
+    [scene.rootNode addChildNode:self.cameraNode];
+    self.sceneView.pointOfView = self.cameraNode;
 
     SCNText *sceneText = [SCNText textWithString:self.textField.text extrusionDepth:2];
     SCNMaterial *frontMaterial = [SCNMaterial material];
@@ -73,8 +77,19 @@
     [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
--(void)focusTextField:(id)sender {
+- (void)focusTextField:(id)sender {
     [self.textField becomeFirstResponder];
+}
+
+- (void)panCamera:(UIPanGestureRecognizer *)pan {
+    self.cameraNode.rotation = SCNVector4Make(0, 1, 0, ([pan translationInView:pan.view].x / 1000) * M_PI);
+}
+
+- (void)zoomCamera:(UIPinchGestureRecognizer *)pinch {
+    CGFloat z = self.cameraNode.position.z * (1 / pinch.scale);
+    z = fmaxf(1.1, z);
+    z = fminf(4.0, z);
+    self.cameraNode.position = SCNVector3Make(0, 0, z);
 }
 
 - (IBAction)clearText:(id)sender {
@@ -82,9 +97,16 @@
     [self textDidChange:nil];
 }
 
+- (IBAction)resetCamera:(id)sender {
+    [SCNTransaction begin];
+    [SCNTransaction setAnimationDuration:0.5];
+    self.cameraNode.position = SCNVector3Make(0, 0, 2);
+    self.cameraNode.rotation = SCNVector4Zero;
+    [SCNTransaction commit];
+}
+
 - (IBAction)toggleAnimate:(id)sender {
     self.animating = ! self.isAnimating;
-
     if (self.animating) {
         [self.animateButton setTitle:@"Stop Animating" forState:UIControlStateNormal];
         [self animateText];

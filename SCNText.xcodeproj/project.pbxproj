@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		DD6706BE194FEAEF009A26CC /* light_wood.jpg in Resources */ = {isa = PBXBuildFile; fileRef = DD6706BD194FEAEF009A26CC /* light_wood.jpg */; };
 		DD6706C1194FEB33009A26CC /* dark_wood.jpg in Resources */ = {isa = PBXBuildFile; fileRef = DD6706C0194FEB33009A26CC /* dark_wood.jpg */; };
-		DD6706C3194FED4D009A26CC /* medium_wood.jpg in Resources */ = {isa = PBXBuildFile; fileRef = DD6706C2194FED4D009A26CC /* medium_wood.jpg */; };
 		DDBA761C194FC8D500722B6E /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = DDBA761B194FC8D500722B6E /* main.m */; };
 		DDBA761F194FC8D500722B6E /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = DDBA761E194FC8D500722B6E /* AppDelegate.m */; };
 		DDBA7622194FC8D500722B6E /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DDBA7621194FC8D500722B6E /* ViewController.m */; };
@@ -20,7 +19,6 @@
 /* Begin PBXFileReference section */
 		DD6706BD194FEAEF009A26CC /* light_wood.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = light_wood.jpg; path = Textures/light_wood.jpg; sourceTree = SOURCE_ROOT; };
 		DD6706C0194FEB33009A26CC /* dark_wood.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = dark_wood.jpg; path = Textures/dark_wood.jpg; sourceTree = SOURCE_ROOT; };
-		DD6706C2194FED4D009A26CC /* medium_wood.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = medium_wood.jpg; path = Textures/medium_wood.jpg; sourceTree = SOURCE_ROOT; };
 		DDBA7616194FC8D500722B6E /* SCNText.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SCNText.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DDBA761A194FC8D500722B6E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DDBA761B194FC8D500722B6E /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -48,7 +46,6 @@
 			isa = PBXGroup;
 			children = (
 				DD6706BD194FEAEF009A26CC /* light_wood.jpg */,
-				DD6706C2194FED4D009A26CC /* medium_wood.jpg */,
 				DD6706C0194FEB33009A26CC /* dark_wood.jpg */,
 			);
 			name = Textures;
@@ -163,7 +160,6 @@
 				DD6706BE194FEAEF009A26CC /* light_wood.jpg in Resources */,
 				DDBA7625194FC8D500722B6E /* Main.storyboard in Resources */,
 				DD6706C1194FEB33009A26CC /* dark_wood.jpg in Resources */,
-				DD6706C3194FED4D009A26CC /* medium_wood.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
