@@ -137,9 +137,10 @@
         [SCNTransaction begin];
         [SCNTransaction setAnimationDuration:1.5];
         self.textNode.rotation = SCNVector4Make(1, 0, 0, 2 * M_PI);
+        __weak typeof(self) weakSelf = self;
         [SCNTransaction setCompletionBlock:^{
-            self.textNode.rotation = SCNVector4Zero;
-            [self animateText];
+            weakSelf.textNode.rotation = SCNVector4Zero;
+            [weakSelf animateText];
         }];
         [SCNTransaction commit];
     }
